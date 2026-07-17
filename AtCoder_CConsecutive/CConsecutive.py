@@ -23,8 +23,8 @@ def main():
     # why does this work over simply whether or not we see one at that point?
     # because:
     # we can't keep track of if one is the edge/end of one, but we can if we "carry" it foward by accumulating
-    print([c for c in s])
-    print(s_dupes)
+    # print([c for c in s])
+    # print(s_dupes)
 
     queries = []
     for q in sys.stdin:
