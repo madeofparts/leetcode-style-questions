@@ -7,18 +7,20 @@
 # Start: Fri 17 Jul 2026 10:12:26 PM
 
 
-def helper(index: int, sum1: int, sum2: int, n: int, w: list[int]) -> int:
-    if index == n:
-        return abs(sum1-sum2)
-    return min(
-            helper(index+1, sum1+w[index], sum2, n, w),
-            helper(index+1, sum1, sum2+w[index], n, w)
-            )
-
 def main():
     n: int = int(input())
     w: list[int] = list(map(int, input().split()))
     
-    print(helper(0, 0, 0, n, w))
+    ans = float('inf')
+    for mask in range(1 << (n-1)):
+        sum1 = 0
+        sum2 = 0
+        for i in range(n):
+            if (mask & (1 << i)):
+                sum1 += w[i]
+            else:
+                sum2 += w[i]
+        ans = min(abs(sum1 - sum2), ans)
+    print(ans)
 if __name__ == '__main__':
     main()
