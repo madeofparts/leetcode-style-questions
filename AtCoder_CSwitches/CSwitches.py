@@ -27,7 +27,7 @@ def main():
             for s in switches_connected[b]:
                 if mask & (1 << (s-1)):             # if the switch for the bulb is on:
                     curr_condition[b] += 1
-        for i in range(m):
+        for i in range(m):                                           # instead of checking all at the end, can check each bulb in the prev. loop and flip a flag
             if (curr_condition[i] % 2) == on_condition[i]:
                 curr_condition[i] = 1
             else:
